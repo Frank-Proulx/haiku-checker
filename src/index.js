@@ -2,6 +2,8 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
+import { checkVowel } from './js/haiku.js';
+import { removeExtraVowels } from './js/haiku.js';
 
 $('#submission').submit(function(event) {
   event.preventDefault();
@@ -19,4 +21,3 @@ $('#submission').submit(function(event) {
 // }
 
 //syllableCounter(haiku[0]+""+haiku[1]+""+haiku[2]) !=17 fail
-
