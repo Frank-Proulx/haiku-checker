@@ -1,6 +1,7 @@
 import { removeExtraVowels } from './../src/js/haiku.js';
 import { checkVowel } from './../src/js/haiku.js';
 import {countSyllable} from './../src/js/haiku.js';
+import {pattern} from './../src/js/haiku.js';
 
 describe('removeExtraVowels', () => {
 
@@ -28,7 +29,13 @@ describe('checkVowel', () => {
 });
 
 describe('countSyllable', () => {
-  test('should return number of vowels in a string', ()=> {
-    expect(countSyllable("Peter piper picked a pack of pickeled peppers")).toEqual(14);
+  test('should return the number of vowels in a string', () =>{
+    expect(countSyllable("ababababa")).toEqual(5);
+  });
+});
+
+describe('pattern', () => {
+  test('should return true if there are 5 syllables in index 1 7 in index 2 and 5 in index 3', () => {
+    expect(pattern(["ababababa","ebebebebebebe","ibibibibib"],0)).toEqual(true);
   });
 });

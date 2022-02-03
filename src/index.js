@@ -4,11 +4,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import { checkVowel } from './js/haiku.js';
 import { removeExtraVowels } from './js/haiku.js';
+import { pattern } from './js/haiku.js';
 
 $('#submission').submit(function(event) {
   event.preventDefault();
   const haiku = $('#haiku').val().split(/\n/);
-  console.log(haiku); 
+  console.log(haiku);
+  if(pattern(haiku)){
+    document.getElementById('output').style.backgroundColor = "green";
+  }else{
+    document.getElementById('output').style.backgroundColor = "red";
+  }
   $('#output').text(haiku);
 });
 
