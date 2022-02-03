@@ -39,11 +39,29 @@ export const countSyllable = (input) => {
   return bob(noVowelInput,0);
 }
 
+const fiveSyllables = input => { return countSyllable(input)===5};
+const sevenSyllables = input => { return countSyllable(input)===7};
 
-const newString = noDoubleVowels("the fork in the road"); 
-const countVowels = newString.split("");
-const wordArray = countVowels.filter(e => e === "a" || e === "e" || e === "i" ||e === "o"||e==="u");
-console.log(wordArray.length);
+
+const pattern = (inputArray, count) => {
+  if (count===inputArray.length)
+  {
+    return true;
+  }
+  if(count%2===0 && fiveSyllables(inputArray[count])){
+    return pattern(inputArray, count+1);
+  }else if (count%2!=0 && sevenSyllables(inputArray[count])){
+    return pattern(inputArray, count+1);
+  }else{
+    return false;
+  }
+}
+
+
+// const newString = noDoubleVowels("the fork in the road"); 
+// const countVowels = newString.split("");
+// const wordArray = countVowels.filter(e => e === "a" || e === "e" || e === "i" ||e === "o"||e==="u");
+// console.log(wordArray.length);
 
 // input.split('').map((e)=>{
 //   if(checkVowel(e)){
